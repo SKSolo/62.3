@@ -1,0 +1,50 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+const int SIZE = 1000;
+
+void wczyt()
+{
+	int tab1[SIZE];
+	int tab2[SIZE];
+	int samo = 0;
+	int wieksze = 0;
+	
+	fstream plik1("c:\\liczby1.txt");
+	fstream plik2("c:\\liczby2.txt");
+	
+	for(int i=0; i<SIZE; i++)
+	{
+		plik1>>oct>>tab1[i];
+	}
+	
+	for(int i=0; i<SIZE; i++)
+	{
+		plik2>>dec>>tab2[i];
+	}
+	plik1.close();
+	plik2.close();
+	
+	for(int i=0; i<SIZE; i++)
+	{
+	
+	if(tab1[i]==tab2[i])
+	{
+		samo++;
+	}
+	
+	if(tab1[i]>tab2[i])
+	{
+		wieksze++;
+	}
+
+	}
+	cout <<"Takich samych jest: "<< samo<<"\n";
+	cout <<"Wiekszych jest: " <<wieksze;
+}
+
+
+int main(int argc, char** argv) {
+	wczyt();
+	return 0;
+}
